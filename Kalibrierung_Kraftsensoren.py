@@ -32,6 +32,7 @@ data = pd.read_excel(file, header=None, names=name)
 
 delet = np.arange(0, 49, 1)
 
+
 Werte = data.drop(delet, axis=0)
 
 # Einlesen der Daten in np.array
@@ -88,7 +89,7 @@ for x in range(len(Laststufen)):
     Werte_F = Werte[(Werte['Referenz kN'] >= Laststufen[x] - 0.01) & (Werte['Referenz kN'] <= Laststufen[x] + 0.01)]
     Werte_F_index = Werte[(Werte['Referenz kN'] >= Laststufen[x] - 0.01) & (Werte['Referenz kN'] <= Laststufen[x] + 0.01)].index.values
     res = np.where(Werte_F_index[:-1] + 1 != Werte_F_index[1:])[0]
-    print(res)
+    #print(res)
     res = res[res > 10]
 
     X_max_1 = Werte_F[10:res[0] -9]
@@ -96,8 +97,8 @@ for x in range(len(Laststufen)):
     X_max_3 = Werte_F[res[1] + 10:res[2] -9]
     X_max_4 = Werte_F[res[2] + 10:-10]
     Mittelwert = X_max_4.mean()
-    print(x)
-    print(res)
+    #print(x)
+    #print(res)
 
     Mittelwerte_Refernz[x].append(X_max_1.mean()[1])
     Mittelwerte_Refernz[x].append(X_max_2.mean()[1])
@@ -122,6 +123,7 @@ for x in range(len(Laststufen)):
     plt.show()'''
 Mittelwerte_Refernz = np.array(Mittelwerte_Refernz)
 Mittelwerte_Prüfling = np.array(Mittelwerte_Prüfling)
+
 
 Refernz_mean = np.mean(Mittelwerte_Refernz, axis=1)
 Prüfling_mean = np.mean(Mittelwerte_Prüfling, axis=1)
@@ -163,6 +165,11 @@ Ausgabe für Fehler korrekter
 
 Korrektur_max= (S/ ((F_max*1000)-(A[-1]/100)*F_max*1000))*F_max*1000
 
+Korrektur_unten=((A[0]/100)*F_max*1000)+(F_max*1000*Stufen[0])
 
+Korrektur_min=(Stufen[0]*S*F_max*1000/Korrektur_unten)-2
+
+print(0,'N','=', Korrektur_min,'mV/V')
+print(-F_max*1000,'N','=', Korrektur_max,'mV/V')
 
 
