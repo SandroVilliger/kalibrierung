@@ -124,7 +124,7 @@ x8_M=Werte_8_m.mean()
 x9_M=Werte_9_m.mean()
 x10_M=Werte_10_m.mean()
 x11_M=Werte_11_m.mean()
-
+X_Stufen=np.array([x1_M,x2_M,x3_M,x4_M,x5_M,x6_M,x7_M,x8_M,x9_M,x10_M,x11_M])
 
 #%% Berechnung der totalen Miitelwerte
 
@@ -157,10 +157,16 @@ A = ((XM-XR ) / Laststufen) * 100
 
 text=['-10%','-7.5%','-5%','-2.5%','0%','2.5%','5%','7.5%','10%']
 
+
+U=0.09
+
+k=2
+
+
 plt.figure(figsize=(8, 5), dpi=300)
 plt.plot(abs(Laststufen),A,color='green')
-#plt.plot(abs(Laststufen),A-k*(U),color='blue',linestyle='--')
-#plt.plot(abs(Laststufen),A+k*(U),color='blue',linestyle='--')
+plt.plot(abs(Laststufen),A-k*(U),color='blue',linestyle='--')
+plt.plot(abs(Laststufen),A+k*(U),color='blue',linestyle='--')
 plt.hlines(0,abs(Laststufen)[0],abs(Laststufen)[-1],colors='black')
 plt.hlines(10,abs(Laststufen)[0],abs(Laststufen)[-1],colors='red')
 plt.hlines(-10,abs(Laststufen)[0],abs(Laststufen)[-1],colors='red')

@@ -156,7 +156,7 @@ x14_M=Werte_14_m.mean()
 x15_M=Werte_15_m.mean()
 x16_M=Werte_16_m.mean()
 x17_M=Werte_17_m.mean()
-
+X_Stufen=np.array([x1_M,x2_M,x3_M,x4_M,x5_M,x6_M,x7_M,x8_M,x9_M,x10_M,x11_M,x12_M,x13_M,x14_M,x15_M,x16_M,x17_M])
 
 #%% Berechnung der totalen Mittelwerte
 
@@ -194,12 +194,18 @@ Laststufen=np.array([10,20,30,40,50,60,70,80,90])
 print(XM-XR)
 A = ((XM-XR ) / Laststufen) * 100
 
+
+U=0.09
+
+k=2
+
+
 text=['-10%','-7.5%','-5%','-2.5%','0%','2.5%','5%','7.5%','10%']
 
 plt.figure(figsize=(8, 5), dpi=300)
 plt.plot(abs(Laststufen),A,color='green')
-#plt.plot(abs(Laststufen),A-k*(U),color='blue',linestyle='--')
-#plt.plot(abs(Laststufen),A+k*(U),color='blue',linestyle='--')
+plt.plot(abs(Laststufen),A-k*(U),color='blue',linestyle='--')
+plt.plot(abs(Laststufen),A+k*(U),color='blue',linestyle='--')
 plt.hlines(0,abs(Laststufen)[0],abs(Laststufen)[-1],colors='black')
 plt.hlines(10,abs(Laststufen)[0],abs(Laststufen)[-1],colors='red')
 plt.hlines(-10,abs(Laststufen)[0],abs(Laststufen)[-1],colors='red')
