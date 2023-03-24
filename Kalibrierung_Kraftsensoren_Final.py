@@ -237,7 +237,7 @@ ws.column_dimensions['B'].width=12
 ws.column_dimensions['C'].width=13
 ws.column_dimensions['D'].width=17
 ws.column_dimensions['E'].width=13
-ws.column_dimensions['F'].width=16
+ws.column_dimensions['F'].width=17
 ws.column_dimensions['G'].width=12
 
 # Fusszeile
@@ -442,7 +442,7 @@ img.width= 600
 img.anchor = 'A59'
 ws.add_image(img)
 
-ws['B79']='Abbildung 2'
+ws['B79']='Abbildung 1'
 ws['B79'].font=ft2
 
 ws['A81']='Die Genauigkeit des Kraftsensors beträgt:'
@@ -456,4 +456,4 @@ ws['F81'].font=ft3
 
 # Speichern des Excels
 
-wb.save('Kalibrierung.xlsx')
+wb.save('Kalibrierung Kraftsensoren.xlsx')

@@ -196,7 +196,7 @@ x15_M=Max_0125_1_2_m.mean()
 
 X_Stufen=np.array([x1_M,x2_M,x3_M,x4_M,x5_M,x6_M,x7_M,x8_M,x9_M,x10_M,x11_M,x12_M,x13_M,x14_M,x15_M])
 
-#%% Berechnung der totalen Miitelwerte
+#%% Berechnung der totalen Mittelwerte
 
 
 X1R=(x1_R+x15_R)/2
